@@ -6,17 +6,37 @@ namespace LearnToCode.ConsoleUI
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-
-
-            Hello("John");
-            Hello("Terry");
+            InputTest();
+            Console.ReadLine();
         }
 
-
-        static void Hello(string name)
+        private static void InputTest()
         {
-            Console.WriteLine($"Hello {name}");
+            Console.Write("Enter a whole number: ");
+            int input;
+
+            while(!int.TryParse(Console.ReadLine(),out input ))
+            {
+                Console.WriteLine("You must enter a whole number");
+            }
+
+            LoopTest(input);
+
         }
+
+        private static void LoopTest(int max)
+        {
+            for (int i = 1; i <= max; i++)
+            {
+                Console.WriteLine($"{i} x {i} = {i * i}");
+            }
+        }
+
+        static void Output(string value)
+        {
+            Console.WriteLine($"Outputting {value}");
+        }
+
+
     }
 }
