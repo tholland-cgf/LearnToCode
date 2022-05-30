@@ -8,7 +8,6 @@ namespace LearnToCode.ConsoleUI
     internal class Program
     {
         const string FILE_PATH= @"c:\temp\names.txt";
-
         static void Main(string[] args)
         {
             ReadWritePersistedListTest();
@@ -17,7 +16,6 @@ namespace LearnToCode.ConsoleUI
             //InputTest();
             Console.ReadLine();
         }
-
         private static void ListTest()
         {
             List<string> names = new List<string>();
@@ -57,7 +55,6 @@ namespace LearnToCode.ConsoleUI
                 Console.WriteLine(name);
             }
         }
-
         private static void ReadPersistedListTest()
         {
             List<string> names = new List<string>();
@@ -73,7 +70,6 @@ namespace LearnToCode.ConsoleUI
 
 
         }
-
         private static void ReadWritePersistedListTest()
         {
 
@@ -106,7 +102,6 @@ namespace LearnToCode.ConsoleUI
 
 
         }
-
         static void PrintList(string title, IEnumerable<string> list)
         {
 
@@ -123,7 +118,6 @@ namespace LearnToCode.ConsoleUI
         {
             return File.ReadAllLines(filepath);
         }
-
         static void SaveLinesToFile(string filepath,IEnumerable<string> lines)
         {
             File.WriteAllLines(filepath, lines);
@@ -141,7 +135,6 @@ namespace LearnToCode.ConsoleUI
             LoopTest(input);
 
         }
-
         private static void LoopTest(int max)
         {
             for (int i = 1; i <= max; i++)
@@ -149,7 +142,6 @@ namespace LearnToCode.ConsoleUI
                 Console.WriteLine($"{i} x {i} = {i * i}");
             }
         }
-
         static void Output(string value)
         {
             Console.WriteLine($"Outputting {value}");
