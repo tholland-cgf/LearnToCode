@@ -7,9 +7,12 @@ namespace LearnToCode.ConsoleUI
 {
     internal class Program
     {
+        const string FILE_PATH= @"c:\temp\names.txt";
+
         static void Main(string[] args)
         {
-            ReadPersistedListTest();
+            ReadWritePersistedListTest();
+            //ReadPersistedListTest();
             //ListTest();
             //InputTest();
             Console.ReadLine();
@@ -67,16 +70,70 @@ namespace LearnToCode.ConsoleUI
             }
 
 
-            
+
 
         }
 
+        private static void ReadWritePersistedListTest()
+        {
+
+
+            //read lines in file...
+            List<string> names = GetLinesFromFile(FILE_PATH).ToList();
+            PrintList("Names currently in file:",names);
+
+            //keep asking user for name until they enter empty string
+            Console.WriteLine("Enter another new to add to file:");
+            string enteredName = Console.ReadLine();
+            while (!string.IsNullOrEmpty(enteredName))
+            {
+                names.Add(enteredName);
+
+                Console.WriteLine("Enter another name to add to file:");
+                enteredName = Console.ReadLine();
+            }
+
+            Console.WriteLine("Writing current list to file");
+
+            SaveLinesToFile(FILE_PATH, names);
+
+
+
+            names = GetLinesFromFile(FILE_PATH).ToList();
+
+            PrintList("Names currently in file:", names);
+
+
+
+        }
+
+        static void PrintList(string title, IEnumerable<string> list)
+        {
+
+            Console.WriteLine(title);
+            Console.WriteLine("------------------------------");
+            foreach (var item in list)
+            {
+                Console.WriteLine(item);
+            }
+
+            Console.WriteLine();
+        }
+        static IEnumerable<string> GetLinesFromFile(string filepath)
+        {
+            return File.ReadAllLines(filepath);
+        }
+
+        static void SaveLinesToFile(string filepath,IEnumerable<string> lines)
+        {
+            File.WriteAllLines(filepath, lines);
+        }
         private static void InputTest()
         {
             Console.Write("Enter a whole number: ");
             int input;
 
-            while(!int.TryParse(Console.ReadLine(),out input ))
+            while (!int.TryParse(Console.ReadLine(), out input))
             {
                 Console.WriteLine("You must enter a whole number");
             }
