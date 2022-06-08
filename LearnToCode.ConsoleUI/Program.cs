@@ -17,14 +17,15 @@ namespace LearnToCode.ConsoleUI
             exercise = new StringExercises("The quick brown fox jumps over the lazy dog.");
             exercise.Execute();
 
-            exercise = new LoopExercises();
-            exercise.Execute();
+            //exercise = new LoopExercises();
+            
+            //exercise.Execute();
 
-            exercise = new FileReadAndWriteExercises(@"c:\temp\names.txt");
-            exercise.Execute();
+            //exercise = new FileReadAndWriteExercises(@"c:\temp\names.txt");
+            //exercise.Execute();
 
-            exercise = new BasicLoopExercises();
-            exercise.Execute();
+            //exercise = new BasicLoopExercises();
+            //exercise.Execute();
 
 
 
