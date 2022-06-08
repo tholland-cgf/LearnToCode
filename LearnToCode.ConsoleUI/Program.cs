@@ -8,26 +8,26 @@ namespace LearnToCode.ConsoleUI
 {
     internal class Program
     {
-        const string FILE_PATH= @"c:\temp\names.txt";
+        const string FILE_PATH = @"c:\temp\names.txt";
         static void Main(string[] args)
         {
 
+            IExercise exercise;
 
-            IExercise loopExercises = new LoopExercises();
-            loopExercises.Execute();
+            exercise = new StringExercises("The quick brown fox jumps over the lazy dog.");
+            exercise.Execute();
 
-            IExercise fileReadAndWriteTests=new FileReadAndWriteExercises(@"c:\temp\names.txt");
-            fileReadAndWriteTests.Execute();
+            exercise = new LoopExercises();
+            exercise.Execute();
+
+            exercise = new FileReadAndWriteExercises(@"c:\temp\names.txt");
+            exercise.Execute();
+
+            exercise = new BasicLoopExercises();
+            exercise.Execute();
 
 
-            IExercise basicLoops = new BasicLoopExercises();
-            basicLoops.Execute();
 
-
-
-            //ReadPersistedListTest();
-            //ListTest();
-            //InputTest();
             Console.ReadLine();
         }
         //private static void ListTest()
@@ -81,8 +81,8 @@ namespace LearnToCode.ConsoleUI
         //        names.Add(name);
         //    }
         //}
-        
-      
+
+
 
     }
 }
