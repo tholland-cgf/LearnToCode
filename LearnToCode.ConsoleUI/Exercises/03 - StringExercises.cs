@@ -29,6 +29,7 @@ namespace LearnToCode.ConsoleUI.Exercises
 
 
             GetIndividualLetterCounts();
+            GetIndividualLetterCountsBetter();
 
             Console.WriteLine();
             Console.WriteLine();
@@ -36,6 +37,9 @@ namespace LearnToCode.ConsoleUI.Exercises
 
         void GetIndividualLetterCounts()
         {
+            Console.WriteLine("Sledgehammer method of counting letters");
+            Console.WriteLine("---------------------------------------");
+
             int a = 0;
             int b = 0;
             int c = 0;
@@ -121,8 +125,34 @@ namespace LearnToCode.ConsoleUI.Exercises
             Console.WriteLine($"The letter 'y' appears {y} times");
             Console.WriteLine($"The letter 'z' appears {z} times");
 
+            Console.WriteLine();
+            Console.WriteLine();
         }
 
+        void GetIndividualLetterCountsBetter()
+        {
+            Console.WriteLine("Neater method of counting letters");
+            Console.WriteLine("---------------------------------------");
+            Dictionary<string, int> letterCounts = new Dictionary<string, int>();
 
+            foreach (var character in _value)
+            {
+                string characterAsString = character.ToString();
+
+                if (letterCounts.ContainsKey(characterAsString))
+                    letterCounts[characterAsString]++;
+                else
+                    letterCounts.Add(characterAsString, 1);
+            }
+
+
+            foreach (var item in letterCounts)
+            {
+                Console.WriteLine($"The letter '{item.Key}' appears {item.Value} times");
+            }
+
+            Console.WriteLine();
+            Console.WriteLine();
+        }
     }
 }
