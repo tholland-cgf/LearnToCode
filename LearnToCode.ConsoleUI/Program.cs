@@ -1,4 +1,5 @@
-﻿using LearnToCode.ConsoleUI.Exercises;
+﻿using LearnToCode.ConsoleUI.Classes;
+using LearnToCode.ConsoleUI.Exercises;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -11,6 +12,10 @@ namespace LearnToCode.ConsoleUI
         const string FILE_PATH = @"c:\temp\names.txt";
         static void Main(string[] args)
         {
+            TestInheritance2();
+            TestInheritance();
+
+
 
             IExercise exercise;
 
@@ -29,6 +34,39 @@ namespace LearnToCode.ConsoleUI
 
 
             Console.ReadLine();
+        }
+
+
+        static void TestInheritance()
+        {
+            List<IAnimal> animals = new List<IAnimal>();
+
+
+            Classes.IAnimal d = new Classes.Dog();
+            Classes.IAnimal b = new Classes.Bird();
+            Classes.IAnimal c = new Classes.Cat();
+
+            d.MakeNoise();
+            d.Move();
+
+        }
+
+        static void TestInheritance2()
+        {
+            List<IAnimal> animals = new List<IAnimal>();
+
+
+            animals.Add( new Classes.Dog());
+            animals.Add(new Classes.Bird());
+            animals.Add(new Classes.Cat());
+
+
+            foreach (var a in animals)
+            {
+                a.MakeNoise();
+                a.Move();
+            }
+
         }
         //private static void ListTest()
         //{
