@@ -12,10 +12,13 @@ namespace LearnToCode.ConsoleUI
         const string FILE_PATH = @"c:\temp\names.txt";
         static void Main(string[] args)
         {
-            Interfaces02();
-            Interfaces01();
+            //Inheritance01();
+            Inheritance02();
 
-            Loops();
+            //Interfaces02();
+            //Interfaces01();
+
+            //Loops();
 
             Console.ReadLine();
         }
@@ -38,10 +41,11 @@ namespace LearnToCode.ConsoleUI
 
         static void Interfaces01()
         {
-            List<IAnimal> animals = new List<IAnimal>();
+
+            //Animal a= new IAnimal();
 
 
-            IAnimal d = new Dog();
+            Dog d = new Dog();
             IAnimal b = new Bird();
             IAnimal c = new Cat();
 
@@ -68,7 +72,44 @@ namespace LearnToCode.ConsoleUI
 
         }
 
+        static void Inheritance01()
+        {
+            //List<IAnimal> animals = new List<IAnimal>();
 
+
+            Inheritance.Dog d = new Inheritance.Dog();
+
+            d.Eat();
+
+
+
+            Inheritance.Cat c = new Inheritance.Cat();
+            c.Eat();
+        }
+
+        static void Inheritance02()
+        {
+            List<Inheritance.IAnimal2> animals = new List<Inheritance.IAnimal2>();
+
+
+            animals.Add(new Inheritance.Dog());
+            animals.Add(new Inheritance.Cat());
+
+
+
+            foreach (var a in animals)
+            {
+                a.MakeNoise();
+                a.Move();
+                a.Eat();
+            }
+
+
+
+            Inheritance.Cat c = new Inheritance.Cat();
+            
+            
+        }
     }
 }
 

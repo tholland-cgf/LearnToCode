@@ -2,8 +2,15 @@
 
 namespace LearnToCode.ConsoleUI.Interfaces
 {
-    class Dog :IAnimal
+    class Dog : IAnimal
+
     {
+
+        public int Age { get; set; }
+        public string Name { get; set; }
+
+      
+
         public void Move()
         {
             Console.WriteLine("Walking");
@@ -19,3 +26,17 @@ namespace LearnToCode.ConsoleUI.Interfaces
 
 
 }
+//private string _name;
+
+//public string Name
+//{
+//    get
+//    {
+//        return _name;
+//    }
+
+//    set 
+//    {
+//        _name = value;
+//    }
+//}

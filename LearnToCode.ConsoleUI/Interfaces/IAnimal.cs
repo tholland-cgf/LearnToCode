@@ -7,6 +7,12 @@ namespace LearnToCode.ConsoleUI.Interfaces
 {
     interface IAnimal
     {
+       
+        public string Name { get; set; }
+        public int Age { get; set; }
+
+
+
 
         void Move();
         void MakeNoise();
