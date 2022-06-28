@@ -18,7 +18,7 @@ namespace LearnToCode.ConsoleUI.Exercises
             WhileLoop();
         }
 
-        void ArrayForEachLoop()
+        private void ArrayForEachLoop()
         {
             Console.WriteLine("Using a foreach loop to enumerate the array of names");
             Console.WriteLine("----------------------------------------------------");
@@ -32,13 +32,14 @@ namespace LearnToCode.ConsoleUI.Exercises
 
         }
 
-        void ArrayForLoop()
+        private void ArrayReverseForLoop()
         {
-            Console.WriteLine("Using a for loop to enumerate the array of names");
-            Console.WriteLine("------------------------------------------------");
-            for (int i = 0; i < names.Length; i++)
+            Console.WriteLine("Using a for loop to enumerate the array of names in reverse");
+            Console.WriteLine("-----------------------------------------------------------");
+            for (int i = 0; i < names.Length; i += 2)
             {
-                Console.WriteLine(names[i]);
+                var item = names[i];
+                Console.WriteLine(item);
             }
             Console.WriteLine();
             Console.WriteLine();
@@ -46,7 +47,23 @@ namespace LearnToCode.ConsoleUI.Exercises
 
         }
 
-        void WhileLoop()
+        private void ArrayForLoop()
+        {
+            Console.WriteLine("Using a for loop to enumerate the array of names");
+            Console.WriteLine("------------------------------------------------");
+            for (int i = 0; i < names.Length; i+=2)
+            {
+                var item = names[i];
+                Console.WriteLine(item);
+            }
+            Console.WriteLine();
+            Console.WriteLine();
+
+
+        }
+
+        
+        private void WhileLoop()
         {
             Console.WriteLine("Using a while loop to enumerate the array of names");
             Console.WriteLine("--------------------------------------------------");
@@ -55,7 +72,7 @@ namespace LearnToCode.ConsoleUI.Exercises
             while (i< names.Length)
             {
                 Console.WriteLine(names[i]);
-                i++;
+                i+=2;
             }
 
             Console.WriteLine();
