@@ -1,4 +1,5 @@
-﻿using LearnToCode.ConsoleUI.Exercises;
+﻿using LearnToCode.ConsoleUI.Interfaces;
+using LearnToCode.ConsoleUI.Exercises;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -11,82 +12,104 @@ namespace LearnToCode.ConsoleUI
         const string FILE_PATH = @"c:\temp\names.txt";
         static void Main(string[] args)
         {
+            //Inheritance01();
+            Inheritance02();
 
-            IExercise exercise;
+            //Interfaces02();
+            //Interfaces01();
 
-            //exercise = new StringExercises("The quick brown fox jumps over the lazy dog.");
-            //exercise.Execute();
+            //Loops();
+
+            Console.ReadLine();
+        }
+
+        private static void Loops()
+        {
+            IExercise exercise = new StringExercises("The quick brown fox jumps over the lazy dog.");
+            exercise.Execute();
 
             //exercise = new LoopExercises();
+            
             //exercise.Execute();
-
-            exercise = new GregLoops();
-            exercise.Execute();
 
             //exercise = new FileReadAndWriteExercises(@"c:\temp\names.txt");
             //exercise.Execute();
 
-            //exercise = new BasicLoopExercises();
-            //exercise.Execute();
-
-
-
-            Console.ReadLine();
+            exercise = new BasicLoopExercises();
+            exercise.Execute();
         }
-        //private static void ListTest()
-        //{
-        //    List<string> names = new List<string>();
+
+        static void Interfaces01()
+        {
+
+            //Animal a= new IAnimal();
 
 
-        //    Console.WriteLine("Enter a name");
-        //    //get name from user
-        //    string name1 = Console.ReadLine();
-        //    //and add to list
-        //    names.Add(name1);
+            Dog d = new Dog();
+            IAnimal b = new Bird();
+            IAnimal c = new Cat();
+
+            d.MakeNoise();
+            d.Move();
+
+        }
+
+        static void Interfaces02()
+        {
+            List<IAnimal> animals = new List<IAnimal>();
 
 
-        //    Console.WriteLine("And another...");
-        //    //less code
-        //    //get next name from user
-        //    names.Add(Console.ReadLine());
+            animals.Add(new Dog());
+            animals.Add(new Bird());
+            animals.Add(new Cat());
 
 
-        //    Console.WriteLine("And one more...");
-        //    //...and another
-        //    names.Add(Console.ReadLine());
+            foreach (var a in animals)
+            {
+                a.MakeNoise();
+                a.Move();
+            }
+
+        }
+
+        static void Inheritance01()
+        {
+            //List<IAnimal> animals = new List<IAnimal>();
 
 
+            Inheritance.Dog d = new Inheritance.Dog();
 
-        //    Console.WriteLine("Printing the list of names in the same order they were entered");
-        //    //print out the name in the order they were added
-        //    foreach (var name in names)
-        //    {
-        //        Console.WriteLine(name);
-        //    }
-
-
-        //    Console.WriteLine("Printing the list of names in the alpha order");
-        //    names.Sort();
-        //    foreach (var name in names)
-        //    {
-        //        Console.WriteLine(name);
-        //    }
-        //}
-
-        //private static void ReadPersistedListTest()
-        //{
-        //    List<string> names = new List<string>();
-        //    var existingNames = File.ReadAllLines(FILE_PATH);
-
-        //    foreach (var name in existingNames)
-        //    {
-        //        Console.WriteLine(name);
-        //        names.Add(name);
-        //    }
-        //}
+            d.Eat();
 
 
 
+            Inheritance.Cat c = new Inheritance.Cat();
+            c.Eat();
+        }
+
+        static void Inheritance02()
+        {
+            List<Inheritance.IAnimal2> animals = new List<Inheritance.IAnimal2>();
+
+
+            animals.Add(new Inheritance.Dog());
+            animals.Add(new Inheritance.Cat());
+
+
+
+            foreach (var a in animals)
+            {
+                a.MakeNoise();
+                a.Move();
+                a.Eat();
+            }
+
+
+
+            Inheritance.Cat c = new Inheritance.Cat();
+            
+            
+        }
     }
 }
 
