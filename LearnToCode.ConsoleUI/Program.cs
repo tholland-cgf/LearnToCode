@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using LearnToCode.Repository;
+using LearnToCode.Models;
 
 namespace LearnToCode.ConsoleUI
 {
@@ -12,8 +14,9 @@ namespace LearnToCode.ConsoleUI
         const string FILE_PATH = @"c:\temp\names.txt";
         static void Main(string[] args)
         {
+            TestRepo();
             //Inheritance01();
-            Inheritance02();
+            //Inheritance02();
 
             //Interfaces02();
             //Interfaces01();
@@ -109,6 +112,17 @@ namespace LearnToCode.ConsoleUI
             Inheritance.Cat c = new Inheritance.Cat();
             
             
+        }
+
+        static void TestRepo()
+        {
+            IPersonRepository repoSQL = new PersonSqlRepository();
+            IEnumerable<Person> plist = repoSQL.GetPersonList("");
+
+          
+
+
+
         }
     }
 }
