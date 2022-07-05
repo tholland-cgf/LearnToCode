@@ -114,14 +114,20 @@ namespace LearnToCode.ConsoleUI
             
         }
 
-        static void TestRepo()
+        static void TestDbRepo()
         {
-            IPersonRepository repoSQL = new PersonSqlRepository();
-            IEnumerable<Person> plist = repoSQL.GetPersonList("");
+            IPersonRepository repo = new PersonSqlRepository();
+            IEnumerable<Person> plist = repo.GetPersonList("");
 
-          
+            //pass list on to a web page or other service that will use the list
 
+        }
+        static void TestFileRepo()
+        {
+            IPersonRepository repo = new PersonFileRepository();
+            IEnumerable<Person> plist = repo.GetPersonList("");
 
+            //pass list on to a web page or other service that will use the list
 
         }
     }

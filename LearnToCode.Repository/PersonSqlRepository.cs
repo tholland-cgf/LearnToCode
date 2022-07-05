@@ -36,20 +36,32 @@ namespace LearnToCode.Repository
                 using (SqlCommand cmm = new SqlCommand())
                 {
                     cmm.Connection = cnn;
-                    cmm.CommandText = "GetPeopleList";
+                    cmm.CommandText = "[dbo].[GetPeopleList]";
                     cmm.CommandType = System.Data.CommandType.StoredProcedure;
+
+
                     cmm.Parameters.AddWithValue("@where","1=1");
+
+
                     using (SqlDataReader dr = cmm.ExecuteReader())
                     {
-                        while (dr.Read())
+                        while (dr.Read()) 
                         {
-                            list.Add(new Person
-                            {
-                                Id = Convert.ToInt32(dr["Id"]),
-                                Name = Convert.ToString(dr["Name"]),
-                                Age = Convert.ToInt32(dr["Age"])
 
-                            });
+                            Person p = new Person();
+                            p.Id = Convert.ToInt32(dr["Id"]);
+                            p.Name = Convert.ToString(dr["Name"]);
+                            p.Age = Convert.ToInt32(dr["Age"]);
+
+                            list.Add(p);
+
+                            //list.Add(new Person
+                            //{
+                            //    Id = Convert.ToInt32(dr["Id"]),
+                            //    Name = Convert.ToString(dr["Name"]),
+                            //    Age = Convert.ToInt32(dr["Age"])
+
+                            //});
                         }
                     }
                 }
