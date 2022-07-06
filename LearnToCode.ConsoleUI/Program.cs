@@ -14,7 +14,8 @@ namespace LearnToCode.ConsoleUI
         const string FILE_PATH = @"c:\temp\names.txt";
         static void Main(string[] args)
         {
-            TestRepo();
+            //TestDbRepo();
+            TestFileRepo();
             //Inheritance01();
             //Inheritance02();
 
