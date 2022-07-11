@@ -14,6 +14,9 @@ namespace LearnToCode.ConsoleUI
         const string FILE_PATH = @"c:\temp\names.txt";
         static void Main(string[] args)
         {
+            //TestSplit();
+
+
             //TestDbRepo();
             TestFileRepo();
             //Inheritance01();
@@ -129,6 +132,17 @@ namespace LearnToCode.ConsoleUI
             IEnumerable<Person> plist = repo.GetPersonList("");
 
             //pass list on to a web page or other service that will use the list
+
+        }
+
+
+
+        static void TestSplit()
+        {
+
+            //start of loop to go through records array (created buy reading contents of file) loop to carry on as long as there are lines in records.
+            string line = "Terry,Holland,50";
+            string[] splitLine = line.Split(",");
 
         }
     }
