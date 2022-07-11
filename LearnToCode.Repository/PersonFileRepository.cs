@@ -25,36 +25,37 @@ namespace LearnToCode.Repository
         }
         public IEnumerable<Person> GetPersonList(string q)
         {
+            //create list
             List<Person> list = new List<Person>();
+            //define the location of file to be read
             string _filepath;
             _filepath = @"\\ldn-cgfiles\General\Greg\LearnToCode\Files\Names.txt";
-            
+            //read file and define delimiter characters, in this cas a tab or comma
             string[] records = System.IO.File.ReadAllLines(_filepath);
             char[] delimiterChars = { '\t',',' };
 
-            //Start of Sudo Code for file reading 
-
-
-
-            //var lines = System.IO.File.ReadAllLines(_filepath);
-            //start of loop to go through records array (created buy reading contents of file) loop to carry on as long as there are lines in records.
-            //string line = "Terry,Holland,50";
-           
+           //loop to read through each line of string array "records"
             foreach(var item in records)
             {
+                //split string based on delimiter used into seperate arrays 
                 var splitrec = item.Split(delimiterChars);
+                //create new person 
                 var p = new Person();
+                //convert string value in relevent array to one required by variable 
                 p.Id = Convert.ToInt32(splitrec[0]);
                 p.Name = Convert.ToString(splitrec[1]);
                 p.Age = Convert.ToInt32(splitrec[2]);
-
+                //add all varilables to the list created above 
                 list.Add(p);
             }
-
+            //return list. 
             return list;
 
-            
 
+            //working out stuff 
+            //var lines = System.IO.File.ReadAllLines(_filepath);
+            //start of loop to go through records array (created buy reading contents of file) loop to carry on as long as there are lines in records.
+            //string line = "Terry,Holland,50";
             //Example Sudo code use this to get the process/logic straight in your head before actual coding.
             //take first line of array "record" 
             //split up the string at the break point (code can be heard coded to use either tab [' '] or a comma [,] or even both) 
