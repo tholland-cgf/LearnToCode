@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using LearnToCode.Repository;
 using LearnToCode.Models;
+using LearnToCode.ConsoleUI.StringStuff;
 
 namespace LearnToCode.ConsoleUI
 {
@@ -14,6 +15,10 @@ namespace LearnToCode.ConsoleUI
         const string FILE_PATH = @"c:\temp\names.txt";
         static void Main(string[] args)
         {
+
+            
+            TestOverloads();
+
             //TestSplit();
 
 
@@ -28,6 +33,13 @@ namespace LearnToCode.ConsoleUI
             //Loops();
 
             Console.ReadLine();
+        }
+
+        private static void TestOverloads()
+        {
+            SomeThing s = new SomeThing();
+            s.Blah("Greg");
+            s.Blah(100);
         }
 
         private static void Loops()

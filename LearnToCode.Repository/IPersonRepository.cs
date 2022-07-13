@@ -12,4 +12,13 @@ namespace LearnToCode.Repository
         public Person Create(Person person);
         public void Delete(int id);
     }
+
+
+    public interface IPersonRepository2
+        : IPersonRepository
+    {
+
+        public Person Create(IEnumerable<Person> person);
+        
+    }
 }
