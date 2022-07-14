@@ -14,12 +14,12 @@ namespace LearnToCode.Repository
         public Person Create (Person person)
         {
             throw new NotImplementedException();
-            //Get the filtered list 
+            //Get the filtered list that was returned by search module.
             //Navigate to directry on file sever 
             //create a text file (along the line of search_results.txt, maybe something to check if file exists and take a appropriate action) 
             //open the file
             //write contents of filtered list to file 
-                        //2 options, could either write each "Field" as we go, placing the delimiter between each "field" as you go, or 
+                        //2 options, could either write each "Field" as we go, placing the delimiter between each "field" or 
                         //stitch the values of ID, Name and Age together in a string and write the string to the file. 
             //Save the file
             //Close the file 
